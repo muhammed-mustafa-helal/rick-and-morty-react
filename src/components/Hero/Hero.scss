@@ -1,0 +1,42 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  .logo__image {
+    color: rgb(51, 51, 51);
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+
+    svg {
+      fill: rgb(51, 51, 51);
+    }
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 15rem;
+  text-align: center;
+  position: relative;
+
+  .hero__title {
+    color: rgb(32, 35, 41);
+    border: none;
+    font-weight: 900;
+    z-index: 1;
+    font-size: 7rem;
+
+    @media (max-width: 80rem) {
+      font-size: 5rem;
+    }
+
+    @media (max-width: 50rem) {
+      font-size: 3rem;
+    }
+  
+  }
+}

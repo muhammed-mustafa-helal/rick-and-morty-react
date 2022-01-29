@@ -1,0 +1,50 @@
+.character-origin {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+
+  &__title {
+    font-size: 1.2rem;
+    color: #9e9e9e;
+
+    a {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      padding-left: 0.4rem;
+    }
+  }
+
+  //TODO: LEARN HOW TO NEST ALL Sudo classes in SCSS and do it throught the code base
+  a:hover,
+  a:active {
+    color: #ff9800;
+  }
+
+  &__property {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    &--one,
+    &--two {
+      display: flex;
+      width: 50%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &--one p:first-child,
+    &--two p:first-child {
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    &--one p:last-child,
+    &--two p:last-child {
+      color: #02a9c0;
+      margin-left: 0.5rem;
+      font-weight: 800;
+    }
+  }
+}

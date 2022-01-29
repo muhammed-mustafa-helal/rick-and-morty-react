@@ -1,0 +1,40 @@
+.character-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  h1 {
+    color: #f9f6f9;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.1rem;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: center;
+
+    p {
+      text-transform: capitalize;
+    }
+  }
+  &__status {
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+.green {
+  background-color: #55cc44;
+}
+
+.red {
+  background-color: #d63d2e;
+}
+.grey {
+  background-color: #9e9e9e;
+}

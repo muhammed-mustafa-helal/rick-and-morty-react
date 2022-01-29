@@ -1,0 +1,13 @@
+.character-card-grid {
+  background-color: #24282f;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  &__container {
+    margin: 5rem auto;
+    width: 140rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

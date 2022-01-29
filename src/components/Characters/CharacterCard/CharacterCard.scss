@@ -1,0 +1,14 @@
+.character-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 2rem 2rem 4rem 2rem;
+  max-height: 60rem;
+  &__img {
+    height: 50%;
+  }
+  &__info {
+    background-color: #3c3e44;
+    height: 50%;
+  }
+}
