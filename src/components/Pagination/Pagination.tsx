@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import "./Pagination.scss";
 interface IPagination {
   pageNumber: number;
+  totalPages: number;
   updatePage: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -15,10 +16,13 @@ function Pagination(props: IPagination) {
 
   const updateClickablePages = (actualPage: number) => {
     const offsets = [0, 1, 2, 3];
+    const negativeOffsets = [-3, -2, -1, 0];
     const updatedClickablePages = offsets.map((number) => actualPage + number);
-    const paginationLimit = updatedClickablePages.find((number) => number >= 42);
+    const paginationLimit = updatedClickablePages.find(
+      (number) => number >= props.totalPages
+    );
     if (typeof paginationLimit === "undefined") return updatedClickablePages;
-    return [39, 40, 41, 42];
+    return negativeOffsets.map((number) => props.pageNumber + number);
   };
   let clickablePages: number[] = updateClickablePages(props.pageNumber);
 
@@ -29,16 +33,6 @@ function Pagination(props: IPagination) {
 
     return pageUpdated;
   };
-
-  //TODO: FIx active state class ISSUE
-  const [activeState, setActiveState] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
 
   //Handlers
 
@@ -63,7 +57,6 @@ function Pagination(props: IPagination) {
             onClick={() =>
               updatePageHandler(updatePaginationPage(-1, props.pageNumber))
             }
-            className={activeState[0] ? "active" : ""}
           >
             <span aria-hidden="true">&laquo;</span>
             <span className="visuallyhidden">previous set of pages</span>
@@ -87,7 +80,6 @@ function Pagination(props: IPagination) {
           <a
             href="javascript:void(0)"
             onClick={() => updatePageHandler(updatePaginationPage(1, props.pageNumber))}
-            className={activeState[5] ? "active" : ""}
           >
             <span className="visuallyhidden">next set of pages</span>
             <span aria-hidden="true">&raquo;</span>

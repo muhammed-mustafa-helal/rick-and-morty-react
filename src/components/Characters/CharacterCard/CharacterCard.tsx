@@ -34,7 +34,7 @@ export function CharacterCard(props: ICharacterCard) {
       }}
     >
       <div className="character-card__img">
-        <img src={props.image} alt="Character Img" />
+        <img src={props.image} alt={props.name} title={props.name} />
       </div>
 
       <div className="character-card__info">

@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 
-import * as rmapi from "rickmortyapi";
-import * as rmapii from "rickmortyapi/dist/interfaces";
+import * as rmapi from "rickmortyapi"; //rickAndMortyAPI
+import * as rmapii from "rickmortyapi/dist/interfaces"; //rickAndMortyApiInterface
 
 // TODO: Wrap rmapi's APIs adding:
 // * Caching
@@ -39,7 +39,7 @@ export interface ConcreteEpisode extends Omit<Episode, "character"> {
 
 export type ConcreteLocation = Location;
 
-/* Concrete Functions */
+/* Helper Functions */
 
 function handleAPIResponse<T>(respone: rmapii.ApiResponse<T>): T {
   return respone.data;
@@ -58,10 +58,10 @@ async function getOr<T, R>(
   return arg === undefined ? or : handleAPIResponse(await f(arg));
 }
 
-export async function getConcreteCharacter(id: number[]): Promise<ConcreteCharacter[]> {
-  await getCharacter(id);
-  return [];
-}
+// export async function getConcreteCharacter(id: number[]): Promise<ConcreteCharacter[]> {
+//   await getCharacter(id);
+//   return [];
+// }
 
 const DEFAULT_LOCATION: Location = {
   id: -1,
@@ -105,26 +105,26 @@ export async function getConcreteCharacters(
   return { info, results: concreteResults };
 }
 
-export async function getConcreteEpisode(id: number[]): Promise<ConcreteEpisode[]> {
-  await getEpisode(id);
-  return [];
-}
+// export async function getConcreteEpisode(id: number[]): Promise<ConcreteEpisode[]> {
+//   await getEpisode(id);
+//   return [];
+// }
 
-export async function getConcreteEpisodes(
-  filters?: EpisodeFilter | undefined
-): Promise<Info<Episode[]>> {
-  handleAPIResponse(await getEpisodes(filters));
-  return {};
-}
+// export async function getConcreteEpisodes(
+//   filters?: EpisodeFilter | undefined
+// ): Promise<Info<Episode[]>> {
+//   handleAPIResponse(await getEpisodes(filters));
+//   return {};
+// }
 
-export async function getConcreteLocation(id: number[]): Promise<ConcreteLocation[]> {
-  getLocation(id);
-  return [];
-}
+// export async function getConcreteLocation(id: number[]): Promise<ConcreteLocation[]> {
+//   getLocation(id);
+//   return [];
+// }
 
-export async function getConcreteLocations(
-  filters?: LocationFilter | undefined
-): Promise<Info<Location[]>> {
-  handleAPIResponse(await getLocations(filters));
-  return {};
-}
+// export async function getConcreteLocations(
+//   filters?: LocationFilter | undefined
+// ): Promise<Info<Location[]>> {
+//   handleAPIResponse(await getLocations(filters));
+//   return {};
+// }
