@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { motion } from "framer-motion";
 
 import "./Pagination.scss";
@@ -52,38 +50,35 @@ function Pagination(props: IPagination) {
       <ul className="pagination">
         <li>
           {" "}
-          <a
-            href="javascript:void(0)"
+          <button
             onClick={() =>
               updatePageHandler(updatePaginationPage(-1, props.pageNumber))
             }
           >
             <span aria-hidden="true">&laquo;</span>
             <span className="visuallyhidden">previous set of pages</span>
-          </a>
+          </button>
         </li>
 
         {clickablePages.map((pageNumber: number, index: number) => (
           <li key={pageNumber}>
-            <a
-              href="javascript:void(0)"
+            <button
               onClick={() => updatePageHandler(pageNumber)}
               className={pageNumber === props.pageNumber ? "active" : ""}
             >
               <span className="visuallyhidden">page </span>
               {pageNumber}
-            </a>
+            </button>
           </li>
         ))}
 
         <li>
-          <a
-            href="javascript:void(0)"
+          <button
             onClick={() => updatePageHandler(updatePaginationPage(1, props.pageNumber))}
           >
             <span className="visuallyhidden">next set of pages</span>
             <span aria-hidden="true">&raquo;</span>
-          </a>
+          </button>
         </li>
       </ul>
     </motion.nav>

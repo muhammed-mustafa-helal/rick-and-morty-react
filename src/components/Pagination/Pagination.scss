@@ -12,14 +12,19 @@ nav {
     li {
       margin: 0 0.1rem;
     }
-    a {
+    button {
+      cursor: pointer;
+      color: white;
+      background-color: #24282f;
       display: block;
       padding: 0.5rem 1rem;
       border: 0.3rem solid #777;
       border-radius: 0.5rem;
+      &.active {
+        background-color: #02a9c0;
+      }
     }
   }
-
   .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -29,9 +34,5 @@ nav {
     position: absolute;
     width: 0.3rem;
     white-space: nowrap;
-  }
-
-  .active {
-    background-color: #02a9c0;
   }
 }
