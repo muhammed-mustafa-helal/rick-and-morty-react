@@ -5,7 +5,6 @@ import * as rmapii from "rickmortyapi/dist/interfaces";
 
 // TODO: Wrap rmapi's APIs adding:
 // * Caching
-// * Error Handling
 
 /* Types */
 

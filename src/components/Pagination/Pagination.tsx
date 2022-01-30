@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { motion } from "framer-motion";
 
 import "./Pagination.scss";
@@ -5,22 +7,53 @@ interface IPagination {
   pageNumber: number;
   updatePage: React.Dispatch<React.SetStateAction<number>>;
 }
+
+//TODO: TO BE OPTIMIZED AND FIX THE GLITCHES
 function Pagination(props: IPagination) {
   // const currentPage = Number(window.location.pathname.split("/").pop()) || 1;
   // const [clickablePages, setClickablePages] = useState([1, 2, 3, 4]);
 
   const updateClickablePages = (actualPage: number) => {
-    const positiveOffsets = [0, 1, 2, 3];
-    // const negativeOffsets = [-3, -2, -1, 0];
-    return positiveOffsets.map((number) => actualPage + number);
+    const offsets = [0, 1, 2, 3];
+    const updatedClickablePages = offsets.map((number) => actualPage + number);
+    const paginationLimit = updatedClickablePages.find((number) => number >= 42);
+    if (typeof paginationLimit === "undefined") return updatedClickablePages;
+    return [39, 40, 41, 42];
   };
-
-  const clickablePages = updateClickablePages(props.pageNumber);
+  let clickablePages: number[] = updateClickablePages(props.pageNumber);
 
   const updatePaginationPage = (direction: number, actualPage: number) => {
     const nextPage = actualPage + direction;
     const pageUpdated = nextPage >= 0 ? nextPage : 1;
+    clickablePages = updateClickablePages(pageUpdated);
+
     return pageUpdated;
+  };
+
+  //TODO: FIx active state class ISSUE
+  const [activeState, setActiveState] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
+  //Handlers
+
+  const toggleClassHandler = (index: number) => {
+    const updatedLink = !activeState[index];
+    const updatedState = [...activeState];
+    updatedState[index] = updatedLink;
+    setActiveState(updatedState);
+  };
+
+  const updatePageHandler = (pageNumber: number) => props.updatePage(pageNumber);
+
+  const onClickHandler = (index: number, pageNumber: number) => {
+    toggleClassHandler(index);
+    updatePageHandler(pageNumber);
   };
 
   return (
@@ -38,17 +71,24 @@ function Pagination(props: IPagination) {
         <li>
           {" "}
           <a
-            href={`/${updatePaginationPage(-1, props.pageNumber)}`}
-            onClick={() => props.updatePage(updatePaginationPage(-1, props.pageNumber))}
+            href="javascript:void(0)"
+            onClick={() =>
+              onClickHandler(0, updatePaginationPage(-1, props.pageNumber))
+            }
+            className={activeState[0] ? "active" : ""}
           >
             <span aria-hidden="true">&laquo;</span>
             <span className="visuallyhidden">previous set of pages</span>
           </a>
         </li>
 
-        {clickablePages.map((pageNumber) => (
+        {clickablePages.map((pageNumber: number, index: number) => (
           <li key={pageNumber}>
-            <a href={`/${pageNumber}`} onClick={() => props.updatePage(pageNumber)}>
+            <a
+              href="javascript:void(0)"
+              onClick={() => onClickHandler(index + 1, pageNumber)}
+              className={activeState[index + 1] ? "active" : ""}
+            >
               <span className="visuallyhidden">page </span>
               {pageNumber}
             </a>
@@ -57,8 +97,9 @@ function Pagination(props: IPagination) {
 
         <li>
           <a
-            href={`/${updatePaginationPage(1, props.pageNumber)}`}
-            onClick={() => props.updatePage(updatePaginationPage(1, props.pageNumber))}
+            href="javascript:void(0)"
+            onClick={() => onClickHandler(5, updatePaginationPage(1, props.pageNumber))}
+            className={activeState[5] ? "active" : ""}
           >
             <span className="visuallyhidden">next set of pages</span>
             <span aria-hidden="true">&raquo;</span>

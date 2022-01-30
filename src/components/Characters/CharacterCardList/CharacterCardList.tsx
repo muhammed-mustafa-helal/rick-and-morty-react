@@ -9,7 +9,7 @@ import {
 import "./CharacterCardList.scss";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import Spinner from "../../Spinner/Spinner";
-// import Pagination from "../../Pagination/Pagination";
+import Pagination from "../../Pagination/Pagination";
 
 function CharacterCardList() {
   const [characters, setCharacters] = useState([] as ConcreteCharacter[]);
@@ -30,7 +30,7 @@ function CharacterCardList() {
     <>
       {(isloading && <Spinner />) || (
         <>
-          {/* <Pagination updatePage={setPage} pageNumber={page} /> */}
+          <Pagination updatePage={setPage} pageNumber={page} />
           <motion.section
             className="character-card-grid"
             animate={{ y: 50 }}
