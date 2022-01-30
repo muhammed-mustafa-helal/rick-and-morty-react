@@ -20,7 +20,10 @@ export function CharacterLocation(props: ICharacterLocation) {
       <div className="character-location__property">
         <div className="character-location__property--one">
           <p>Dimension:</p>
-          <p>{props.location.dimension}</p>
+          <p>
+            {" "}
+            {props.location.name === "unknown" ? "?" : props.location.dimension}
+          </p>
         </div>
         <div className="character-location__property--two">
           <p>No. of residents:</p>

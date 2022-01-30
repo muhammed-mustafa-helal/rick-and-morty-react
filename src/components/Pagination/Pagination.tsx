@@ -42,19 +42,7 @@ function Pagination(props: IPagination) {
 
   //Handlers
 
-  const toggleClassHandler = (index: number) => {
-    const updatedLink = !activeState[index];
-    const updatedState = [...activeState];
-    updatedState[index] = updatedLink;
-    setActiveState(updatedState);
-  };
-
   const updatePageHandler = (pageNumber: number) => props.updatePage(pageNumber);
-
-  const onClickHandler = (index: number, pageNumber: number) => {
-    toggleClassHandler(index);
-    updatePageHandler(pageNumber);
-  };
 
   return (
     <motion.nav
@@ -73,7 +61,7 @@ function Pagination(props: IPagination) {
           <a
             href="javascript:void(0)"
             onClick={() =>
-              onClickHandler(0, updatePaginationPage(-1, props.pageNumber))
+              updatePageHandler(updatePaginationPage(-1, props.pageNumber))
             }
             className={activeState[0] ? "active" : ""}
           >
@@ -86,8 +74,8 @@ function Pagination(props: IPagination) {
           <li key={pageNumber}>
             <a
               href="javascript:void(0)"
-              onClick={() => onClickHandler(index + 1, pageNumber)}
-              className={activeState[index + 1] ? "active" : ""}
+              onClick={() => updatePageHandler(pageNumber)}
+              className={pageNumber === props.pageNumber ? "active" : ""}
             >
               <span className="visuallyhidden">page </span>
               {pageNumber}
@@ -98,7 +86,7 @@ function Pagination(props: IPagination) {
         <li>
           <a
             href="javascript:void(0)"
-            onClick={() => onClickHandler(5, updatePaginationPage(1, props.pageNumber))}
+            onClick={() => updatePageHandler(updatePaginationPage(1, props.pageNumber))}
             className={activeState[5] ? "active" : ""}
           >
             <span className="visuallyhidden">next set of pages</span>

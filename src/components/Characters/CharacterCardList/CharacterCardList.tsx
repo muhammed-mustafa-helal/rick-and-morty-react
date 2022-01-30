@@ -14,13 +14,24 @@ import Pagination from "../../Pagination/Pagination";
 function CharacterCardList() {
   const [characters, setCharacters] = useState([] as ConcreteCharacter[]);
   const [isloading, setisLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function loadCharacters() {
       setisLoading(true);
-      const response = await getConcreteCharacters({ page });
-      setCharacters(response.results || []);
+      setError(null);
+      try {
+        const response = await getConcreteCharacters({ page });
+        console.log(response.results);
+        if (response.results === undefined) {
+          throw new Error("Something went wrong!");
+        }
+        setCharacters(response.results);
+      } catch (error: any) {
+        setError(error.message);
+        setCharacters([]);
+      }
       setisLoading(false);
     }
     loadCharacters();
@@ -28,7 +39,7 @@ function CharacterCardList() {
 
   return (
     <>
-      {(isloading && <Spinner />) || (
+      {(error && <h1 className="error-message"></h1>) || (isloading && <Spinner />) || (
         <>
           <Pagination updatePage={setPage} pageNumber={page} />
           <motion.section
