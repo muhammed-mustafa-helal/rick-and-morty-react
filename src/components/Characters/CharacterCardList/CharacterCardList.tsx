@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import DOMPortal from "react-dom";
 
 import { motion } from "framer-motion";
+import ScrollToTop from "react-scroll-to-top";
 
 import {
   getConcreteCharacters,
@@ -17,6 +19,9 @@ function CharacterCardList() {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
+  const scrollToTop: Element = document.getElementById("scroll-to-top")!;
+
 
   useEffect(() => {
     async function loadCharacters() {
@@ -40,12 +45,22 @@ function CharacterCardList() {
 
   //TODO: Fix this Logic gate hell
   //TODO: Add a Modal component for errors with a backdrop. Use React Portals to display them in the top of HTML
-  //TODO: Add a top of the container component to return to pagination after seeing all characters. Also, using react Portals.
   return (
     <>
       {(error && <h1 className="error-message">{error}</h1>) ||
         (isloading && <Spinner />) || (
           <>
+            {DOMPortal.createPortal(
+              <ScrollToTop
+                top={500}
+                smooth={true}
+                color={"#02a9c0"}
+                width="16"
+                height="16"
+              />,
+              scrollToTop
+            )}
+
             <motion.section
               initial={{ y: 50 }}
               animate={{ y: 0 }}
