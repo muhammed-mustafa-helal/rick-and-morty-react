@@ -11,7 +11,7 @@ export function CharacterOrigin(props: ICharacterOrigin) {
     <section className="character-origin">
       <h5 className="character-origin__title">
         Character origin:
-        <a href={props.origin.url}>
+        <a href={props.origin.name !== "unknown" ? props.origin.url : "#"}>
           {" "}
           {props.origin.name.charAt(0).toUpperCase() + props.origin.name.slice(1)}
         </a>

@@ -11,7 +11,7 @@ export function CharacterLocation(props: ICharacterLocation) {
     <section className="character-location">
       <h5 className="character-location__title">
         Last known location:
-        <a href={props.location.url}>
+        <a href={props.location.name !== "unknown" ? props.location.url : "#"}>
           {" "}
           {props.location.name.charAt(0).toUpperCase() + props.location.name.slice(1)}
         </a>
@@ -20,10 +20,7 @@ export function CharacterLocation(props: ICharacterLocation) {
       <div className="character-location__property">
         <div className="character-location__property--one">
           <p>Dimension:</p>
-          <p>
-            {" "}
-            {props.location.name === "unknown" ? "?" : props.location.dimension}
-          </p>
+          <p> {props.location.name === "unknown" ? "?" : props.location.dimension}</p>
         </div>
         <div className="character-location__property--two">
           <p>No. of residents:</p>

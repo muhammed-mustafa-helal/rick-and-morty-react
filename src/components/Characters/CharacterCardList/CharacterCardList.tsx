@@ -43,11 +43,21 @@ function CharacterCardList() {
       {(error && <h1 className="error-message">{error}</h1>) ||
         (isloading && <Spinner />) || (
           <>
-            <Pagination
-              updatePage={setPage}
-              pageNumber={page}
-              totalPages={totalPages}
-            />
+            <motion.section
+              initial={{ y: 50 }}
+              animate={{ y: 0 }}
+              transition={{
+                delay: 0.5,
+                x: { type: "spring", stiffness: 50 },
+                default: { duration: 1 },
+              }}
+            >
+              <Pagination
+                updatePage={setPage}
+                pageNumber={page}
+                totalPages={totalPages}
+              />
+            </motion.section>
             <motion.section
               className="character-card-grid"
               animate={{ y: 50 }}
