@@ -1,87 +1,32 @@
-import { motion } from "framer-motion";
-
+import ReactPaginate from "react-paginate";
 import "./Pagination.scss";
+
 interface IPagination {
   pageNumber: number;
   totalPages: number;
   updatePage: React.Dispatch<React.SetStateAction<number>>;
 }
-
-//TODO: TO BE OPTIMIZED AND FIX THE GLITCHES
 function Pagination(props: IPagination) {
-  // const currentPage = Number(window.location.pathname.split("/").pop()) || 1;
-  // const [clickablePages, setClickablePages] = useState([1, 2, 3, 4]);
-
-  const updateClickablePages = (actualPage: number) => {
-    const offsets = [0, 1, 2, 3];
-    const negativeOffsets = [-3, -2, -1, 0];
-    const updatedClickablePages = offsets.map((number) => actualPage + number);
-    const paginationLimit = updatedClickablePages.find(
-      (number) => number >= props.totalPages
-    );
-    if (typeof paginationLimit === "undefined") return updatedClickablePages;
-    return negativeOffsets.map((number) => props.pageNumber + number);
-  };
-  let clickablePages: number[] = updateClickablePages(props.pageNumber);
-
-  const updatePaginationPage = (direction: number, actualPage: number) => {
-    const nextPage = actualPage + direction;
-    const pageUpdated = nextPage >= 0 ? nextPage : 1;
-    clickablePages = updateClickablePages(pageUpdated);
-
-    return pageUpdated;
-  };
-
-  //Handlers
-
-  const updatePageHandler = (pageNumber: number) => props.updatePage(pageNumber);
+  const updatePageHandler = (data: any) => props.updatePage(data.selected + 1);
 
   return (
-    <motion.nav
-      aria-label="pagination"
-      initial={{ y: -50 }}
-      animate={{ y: 0 }}
-      transition={{
-        delay: 0.5,
-        x: { type: "spring", stiffness: 100 },
-        default: { duration: 1 },
-      }}
-    >
-      <ul className="pagination">
-        <li>
-          {" "}
-          <button
-            onClick={() =>
-              updatePageHandler(updatePaginationPage(-1, props.pageNumber))
-            }
-          >
-            <span aria-hidden="true">&laquo;</span>
-            <span className="visuallyhidden">previous set of pages</span>
-          </button>
-        </li>
-
-        {clickablePages.map((pageNumber: number, index: number) => (
-          <li key={pageNumber}>
-            <button
-              onClick={() => updatePageHandler(pageNumber)}
-              className={pageNumber === props.pageNumber ? "active" : ""}
-            >
-              <span className="visuallyhidden">page </span>
-              {pageNumber}
-            </button>
-          </li>
-        ))}
-
-        <li>
-          <button
-            onClick={() => updatePageHandler(updatePaginationPage(1, props.pageNumber))}
-          >
-            <span className="visuallyhidden">next set of pages</span>
-            <span aria-hidden="true">&raquo;</span>
-          </button>
-        </li>
-      </ul>
-    </motion.nav>
+    <>
+      <ReactPaginate
+        containerClassName="pagination"
+        nextLabel="&raquo;"
+        forcePage={props.pageNumber === 1 ? 0 : props.pageNumber - 1}
+        previousLabel="&laquo;"
+        pageRangeDisplayed={1}
+        marginPagesDisplayed={1}
+        previousClassName="pagination__button pagination__cursor "
+        nextClassName="pagination__button pagination__cursor "
+        activeClassName="active"
+        pageCount={props.totalPages}
+        onPageChange={updatePageHandler}
+        pageClassName="pagination__item"
+        pageLinkClassName="pagination__button"
+      />
+    </>
   );
 }
 

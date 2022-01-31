@@ -1,38 +1,35 @@
-nav {
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #24282f;
+  height: 10rem;
   position: relative;
   top: 5.1rem;
-  height: 10rem;
-  .pagination {
-    list-style: none;
-    display: flex;
-    li {
-      margin: 0 0.1rem;
-    }
-    button {
-      cursor: pointer;
-      color: white;
-      background-color: #24282f;
-      display: block;
-      padding: 0.5rem 1rem;
-      border: 0.3rem solid #777;
-      border-radius: 0.5rem;
-      &.active {
-        background-color: #02a9c0;
-      }
+  list-style: none;
+  .pagination__button {
+    display: inline-block;
+    height: 3rem;
+    padding: 0.5rem 0.8rem;
+    border: 0.2rem solid #777;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .pagination__item {
+    margin: 0 0.1rem;
+    border-radius: 0.5rem;
+  }
+  .pagination__cursor {
+    a {
+      font-size: 2rem;
+      position: relative;
+      bottom: 1rem;
     }
   }
-  .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: absolute;
-    width: 0.3rem;
-    white-space: nowrap;
+  .active {
+    background-color: #02a9c0;
+    a:hover {
+      color: white;
+    }
   }
 }
