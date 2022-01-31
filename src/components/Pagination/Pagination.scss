@@ -7,7 +7,7 @@
   position: relative;
   top: 5.1rem;
   list-style: none;
-  .pagination__button {
+  &__button {
     display: inline-block;
     height: 3rem;
     padding: 0.5rem 0.8rem;
@@ -15,11 +15,11 @@
     border-radius: 0.5rem;
     cursor: pointer;
   }
-  .pagination__item {
+  &__item {
     margin: 0 0.1rem;
     border-radius: 0.5rem;
   }
-  .pagination__cursor {
+  &__cursor {
     a {
       font-size: 2rem;
       position: relative;

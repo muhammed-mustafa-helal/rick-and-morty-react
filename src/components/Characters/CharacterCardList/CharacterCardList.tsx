@@ -38,6 +38,9 @@ function CharacterCardList() {
     loadCharacters();
   }, [page]);
 
+  //TODO: Fix this Logic gate hell
+  //TODO: Add a Modal component for errors with a backdrop. Use React Portals to display them in the top of HTML
+  //TODO: Add a top of the container component to return to pagination after seeing all characters. Also, using react Portals.
   return (
     <>
       {(error && <h1 className="error-message">{error}</h1>) ||
