@@ -73,6 +73,9 @@ const DEFAULT_LOCATION: Location = {
   residents: [],
 };
 
+//FIXME: Function getCharacters used by the rick and morty client  doesn not have error handling and therefore the App gets stuck in loading if the connection is lost. (I managed to fix the issue and send a merge request to the repo but I doubt it would be accepted anytime soon)
+//TODO: Switch to axios or JS https client instead
+
 export async function getConcreteCharacters(
   filters?: CharacterFilter | undefined
 ): Promise<Info<ConcreteCharacter[]>> {

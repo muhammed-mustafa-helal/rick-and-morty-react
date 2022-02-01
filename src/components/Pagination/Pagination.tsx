@@ -14,7 +14,7 @@ function Pagination(props: IPagination) {
       <ReactPaginate
         containerClassName="pagination"
         nextLabel="&raquo;"
-        forcePage={props.pageNumber === 1 ? 0 : props.pageNumber - 1}
+        forcePage={props.pageNumber - 1}
         previousLabel="&laquo;"
         pageRangeDisplayed={1}
         marginPagesDisplayed={1}

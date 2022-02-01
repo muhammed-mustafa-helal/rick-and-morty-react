@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DOMPortal from "react-dom";
+import ReactDOM from "react-dom";
 
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
@@ -50,7 +50,7 @@ function CharacterCardList() {
       {(error && <h1 className="error-message">{error}</h1>) ||
         (isloading && <Spinner />) || (
           <>
-            {DOMPortal.createPortal(
+            {ReactDOM.createPortal(
               <ScrollToTop
                 top={500}
                 smooth={true}

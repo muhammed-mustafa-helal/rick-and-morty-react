@@ -22,7 +22,6 @@ export function CharacterInfo(props: ICharacterInfo) {
     statusClasses = "character-info__status grey";
   }
 
-  //TODO: Optimize this part
   return (
     <section className="character-info">
       <h1>
