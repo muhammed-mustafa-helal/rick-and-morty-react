@@ -1,0 +1,46 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  margin: 0 auto;
+  top: 30vh;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: white;
+  color: black;
+  &__header {
+    background-color: #02a9c0;
+    padding: 1rem;
+    h2 {
+      margin: 0;
+      color: white;
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+  }
+
+  &__actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}

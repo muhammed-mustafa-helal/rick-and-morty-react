@@ -1,0 +1,15 @@
+.button {
+  background-color: #02a9c0;
+  font-size: 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #777;
+  width: 8rem;
+  height: 2.5rem;
+  margin-left: 1rem;
+  &:hover {
+    background-color: #02aac0af;
+    transform: scale(1.1);
+    transition-timing-function: ease-in;
+  }
+}
