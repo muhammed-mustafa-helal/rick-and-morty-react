@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Rick and Morty API app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+see live version through netlify: https://fervent-shockley-90b1b0.netlify.app.
 
 ## Available Scripts
 
