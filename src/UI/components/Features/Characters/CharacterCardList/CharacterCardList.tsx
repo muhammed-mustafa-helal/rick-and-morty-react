@@ -4,17 +4,17 @@ import ReactDOM from "react-dom";
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
 
-import { CharacterCard } from "../CharacterCard/CharacterCard";
-import Spinner from "../../../UI/Spinner/Spinner";
-import Pagination from "../../Pagination/Pagination";
-import ErrorModal from "../../ErrorModal/ErrorModal";
+import { CharacterCard } from "./CharacterCard/CharacterCard";
+import Spinner from "../../../../HelperComponents/Spinner/Spinner";
+import Pagination from "../../../Pagination/Pagination";
+import ErrorModal from "../../../../HelperComponents/ErrorModal/ErrorModal";
 
 import "./CharacterCardList.scss";
 
 import {
   getConcreteCharacters,
   ConcreteCharacter,
-} from "../../../services/RickMorty/RickMorty";
+} from "../../../../../services/RickMorty/RickMorty";
 
 function CharacterCardList() {
   //state

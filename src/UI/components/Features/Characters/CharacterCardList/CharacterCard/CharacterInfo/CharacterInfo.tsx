@@ -1,4 +1,4 @@
-import { Character } from "../../../services/RickMorty/RickMorty";
+import { Character } from "../../../../../../../services/RickMorty/RickMorty";
 
 import "./CharacterInfo.scss";
 

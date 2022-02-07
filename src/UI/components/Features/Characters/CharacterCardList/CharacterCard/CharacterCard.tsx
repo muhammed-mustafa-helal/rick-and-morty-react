@@ -7,16 +7,16 @@ import "./CharacterCard.scss";
 import {
   CharacterChapters,
   ICharacterChapters,
-} from "../CharacterChapters/CharacterChapters";
+} from "../CharacterCard/CharacterChapters/CharacterChapters";
 
-import { CharacterOrigin, ICharacterOrigin } from "../CharacterOrigin/CharacterOrigin";
+import { CharacterOrigin, ICharacterOrigin } from "../CharacterCard/CharacterOrigin/CharacterOrigin";
 
 import {
   CharacterLocation,
   ICharacterLocation,
-} from "../CharacterLocation/CharacterLocation";
+} from "../CharacterCard/CharacterLocation/CharacterLocation";
 
-import { CharacterInfo, ICharacterInfo } from "../CharacterInfo/CharacterInfo";
+import { CharacterInfo, ICharacterInfo } from "../CharacterCard/CharacterInfo/CharacterInfo";
 
 export type ICharacterCard = Pick<Character, "image"> &
   ICharacterInfo &

@@ -1,9 +1,7 @@
 import "./ErrorModal.scss";
-import Button from "../../UI/Button/Button";
-
+import Button from "../Button/Button";
 
 function ErrorModal(props: any) {
-    
   //handlers
   const refreshPageHandler = () => {
     window.location.reload();
