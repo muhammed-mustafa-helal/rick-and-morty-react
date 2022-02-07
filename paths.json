@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["UI/components/Features/Characters/*"],
+      "@helperComponents/*": ["UI/HelperComponents/*"],
+      "@services/*": ["services/*"]
+    }
+  }
+}

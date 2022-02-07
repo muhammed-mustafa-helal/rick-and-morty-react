@@ -1,4 +1,4 @@
-import { Location } from "../../../../../../../services/RickMorty/RickMorty";
+import { Location } from "@services/RickMorty/RickMorty";
 
 import "./CharacterLocation.scss";
 

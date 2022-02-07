@@ -1,4 +1,4 @@
-import { Episode } from "../../../../../../../services/RickMorty/RickMorty";
+import { Episode } from "@services/RickMorty/RickMorty";
 import "./CharacterChapters.scss";
 
 export interface ICharacterChapters {

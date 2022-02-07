@@ -4,10 +4,10 @@ import ReactDOM from "react-dom";
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
 
-import { CharacterCard } from "./CharacterCard/CharacterCard";
-import Spinner from "../../../../HelperComponents/Spinner/Spinner";
-import Pagination from "../../../Pagination/Pagination";
-import ErrorModal from "../../../../HelperComponents/ErrorModal/ErrorModal";
+import { CharacterCard } from "@components/CharacterCardList/CharacterCard/CharacterCard";
+import Spinner from "@helperComponents/Spinner/Spinner";
+import Pagination from "@components/CharacterCardList/Pagination/Pagination";
+import ErrorModal from "@helperComponents/ErrorModal/ErrorModal";
 
 import "./CharacterCardList.scss";
 

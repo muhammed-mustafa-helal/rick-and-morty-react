@@ -1,5 +1,5 @@
 import "./ErrorModal.scss";
-import Button from "../Button/Button";
+import Button from "@helperComponents/Button/Button";
 
 function ErrorModal(props: any) {
   //handlers
