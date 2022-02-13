@@ -1,6 +1,6 @@
 # Rick and Morty API app
 
-see live version through netlify: https://fervent-shockley-90b1b0.netlify.app.
+see live version through netlify:https://rick-and-morty-muhammed.netlify.app/
 
 ## Available Scripts
 
