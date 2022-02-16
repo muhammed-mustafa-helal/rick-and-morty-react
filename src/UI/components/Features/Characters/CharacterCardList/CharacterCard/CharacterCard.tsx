@@ -1,30 +1,14 @@
 import { motion } from "framer-motion";
 
-import { Character } from "rickmortyapi/dist/interfaces";
-
 import "./CharacterCard.scss";
 
-import {
-  CharacterChapters,
-  ICharacterChapters,
-} from "@components/CharacterCardList/CharacterCard/CharacterChapters/CharacterChapters";
+import { CharacterChapters } from "@components/CharacterCardList/CharacterCard/CharacterChapters/CharacterChapters";
 
-import { CharacterOrigin, ICharacterOrigin } from "@components/CharacterCardList/CharacterCard/CharacterOrigin/CharacterOrigin";
+import { CharacterLocation } from "@components/CharacterCardList/CharacterCard/CharacterLocation/CharacterLocation";
 
-import {
-  CharacterLocation,
-  ICharacterLocation,
-} from "@components/CharacterCardList/CharacterCard/CharacterLocation/CharacterLocation";
+import { CharacterInfo } from "@components/CharacterCardList/CharacterCard/CharacterInfo/CharacterInfo";
 
-import { CharacterInfo, ICharacterInfo } from "@components/CharacterCardList/CharacterCard/CharacterInfo/CharacterInfo";
-
-export type ICharacterCard = Pick<Character, "image"> &
-  ICharacterInfo &
-  ICharacterOrigin &
-  ICharacterLocation &
-  ICharacterChapters;
-
-export function CharacterCard(props: ICharacterCard) {
+export function CharacterCard(props: any) {
   return (
     <motion.section
       className="character-card"
@@ -46,8 +30,8 @@ export function CharacterCard(props: ICharacterCard) {
           gender={props.gender}
           url={props.url}
         />
-        <CharacterOrigin origin={props.origin} />
-        <CharacterLocation location={props.location} />
+        <CharacterLocation location={props.origin} title="Character origin: " />
+        <CharacterLocation location={props.location} title="Last known location: " />
         <CharacterChapters episodes={props.episodes} />
       </div>
     </motion.section>
